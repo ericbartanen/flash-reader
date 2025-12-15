@@ -1,9 +1,10 @@
 
 
 function WordCard( { word, visibility } ) {
+
     return (
     <div className="card">
-        {{visibility} && <p>{word}</p>}
+        {visibility && <p>{word}</p>}
     </div>
     )
 }
