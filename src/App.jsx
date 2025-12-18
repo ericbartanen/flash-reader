@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { wordList } from './wordlist';
+import { wordListKindergarten, wordListFirstGrade, wordListSecondGrade, wordListThirdGrade } from './wordlist';
 import PointsDisplay from './components/PointsDisplay';
 import WordInput from './components/WordInput';
 import WordCard from './components/WordCard';
@@ -43,6 +43,9 @@ function App() {
 
 
   function randomWord() {
+    // combine all Dolch sight word lists into one array
+    // TO DO: allow user to select grade levels
+    const wordList = [...wordListKindergarten, ...wordListFirstGrade, ...wordListSecondGrade, wordListThirdGrade];
     let randomNumber = Math.floor(Math.random() * wordList.length);
     return wordList[randomNumber];
   }
@@ -55,6 +58,7 @@ function App() {
         setPoints(points + 1);
         setWord(randomWord());
     } else {
+        setPoints(points - 1);
         setWord(randomWord());
     };
   }
